@@ -10,6 +10,7 @@ use Carbon\Carbon;
 
 class ReadEventTest extends TestCase
 {
+    use RefreshDatabase;
     /**
      * A basic feature test example.
      */
@@ -37,7 +38,7 @@ class ReadEventTest extends TestCase
         $response = $this->get('/events');
 
         //Assert
-        $response->assertStatus(200); //redirect()
+        $response->assertStatus(200); 
 
         $response->assertSee('Evento 1');
         $response->assertSee('Evento 2');
