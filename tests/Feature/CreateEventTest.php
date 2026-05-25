@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
+use Carbon\Carbon;
 
 class CreateEventTest extends TestCase
 {
@@ -20,7 +21,7 @@ class CreateEventTest extends TestCase
         $eventData = [
             'name' => 'Conferencia de YouDevs',
             'featured' => 'meme.png',
-            'date' => '2026-06-30',
+            'date' => Carbon::now()->addDay()->toDateString(),
             'time' => '12:00:00',
             'location' => 'EL SANTIAGO BERNABEU',
         ];
