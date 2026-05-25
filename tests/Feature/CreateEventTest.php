@@ -26,11 +26,11 @@ class CreateEventTest extends TestCase
             'location' => 'EL SANTIAGO BERNABEU',
         ];
 
-        //Act:
+        //Act
         $response = $this->post('/events', $eventData);
-        
-        //Assert:
-        $response->assertStatus(302);
+
+        //Assert
+        $response->assertStatus(302); //redirect()
         $this->assertDatabaseHas('events', $eventData);
     }
 }
