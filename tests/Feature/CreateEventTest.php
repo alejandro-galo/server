@@ -5,28 +5,31 @@ namespace Tests\Feature;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
-use carbon\Carbon;
 
 class CreateEventTest extends TestCase
 {
+    use RefreshDatabase;
     /**
      * A basic feature test example.
      */
     public function test_an_event_can_be_created(): void
     {
+        $this->withoutExceptionHandling();
+
         //Arrange:
-        $eventData ={
+        $eventData = [
             'name' => 'Conferencia de YouDevs',
             'featured' => 'meme.png',
-            'date' => Carbon::now(),
+            'date' => '2026-06-30',
             'time' => '12:00:00',
             'location' => 'EL SANTIAGO BERNABEU',
-        };
+        ];
+
         //Act:
         $response = $this->post('/events', $eventData);
         
         //Assert:
-        $response->assert(302);
+        $response->assertStatus(302);
         $this->assertDatabaseHas('events', $eventData);
     }
 }
