@@ -21,7 +21,7 @@ class CreateEventTest extends TestCase
         $eventData = [
             'name' => 'Conferencia de YouDevs',
             'featured' => 'meme.png',
-            'date' => Carbon::now()->addDay()->toDateString(),
+            'date' => Carbon::now()->format('Y-m-d'),
             'time' => '12:00:00',
             'location' => 'EL SANTIAGO BERNABEU',
         ];
