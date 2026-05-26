@@ -16,6 +16,7 @@ class EventController extends Controller
         $events = Event::all();
         return view('events.index', ['events' => $events]);
     }
+
     public function store(StoreEventRequest $request):  redirectResponse
     {
         $eventData = $request->all();
@@ -24,4 +25,14 @@ class EventController extends Controller
 
         return redirect()->route('events.index');
     }
+
+    public function update(Request $request, Event $event): Response
+
+    {
+        $event->update($request->all());
+
+        return response()->json($event, 200);
+    }
+
 }
+
