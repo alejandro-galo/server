@@ -38,7 +38,7 @@ class EventController extends Controller
     {
         $event->delete();
 
-        return response()->json(null, 204);
+        return response(null, 204);
     }
 
 
