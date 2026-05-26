@@ -26,13 +26,21 @@ class EventController extends Controller
         return redirect()->route('events.index');
     }
 
-    public function update(Request $request, Event $event): Response
+    public function update(Request $request, Event $event)
 
     {
         $event->update($request->all());
 
         return response()->json($event, 200);
     }
+
+    public function destroy(Event $event)
+    {
+        $event->delete();
+
+        return response()->json(null, 204);
+    }
+
 
 }
 
